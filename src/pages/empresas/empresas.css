@@ -1,0 +1,220 @@
+/* Variables de color */
+:root {
+  --primary-color: #1a2256;
+  --secondary-color: #f8f9fa;
+  --text-color: #333333;
+  --border-color: #e0e0e0;
+  --delete-color: #dc3545;
+  --edit-color: #ffc107;
+  --add-color: #28a745;
+  --cancel-color: #dc3545;
+  --hover-bg: #f2f4f8;
+}
+
+/* Estilos generales */
+body {
+  font-family: "Arial", sans-serif;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+}
+
+/* Tabla de empresas */
+.empresa-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.empresa-table th,
+.empresa-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.empresa-table th {
+  background: linear-gradient(90deg, var(--primary-color) 0%, #283376 100%);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.empresa-table tr:nth-child(even) {
+  background-color: rgba(248, 249, 250, 0.5);
+}
+
+.empresa-table tr:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Encabezado */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px 0;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Botones */
+.delete-button,
+.edit-button,
+.add-button,
+.cancel-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.delete-button,
+.cancel-button {
+  background-color: var(--delete-color);
+  color: white;
+}
+
+.edit-button {
+  background-color: var(--edit-color);
+  color: var(--text-color);
+}
+
+.add-button {
+  background-color: var(--add-color);
+  color: white;
+}
+
+.delete-button:hover,
+.cancel-button:hover {
+  background-color: #c82333;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+}
+
+.add-button:hover {
+  background-color: #218838;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+
+.modal-content h3 {
+  margin-bottom: 24px;
+  font-size: 24px;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+}
+
+.modal-content input {
+  color: black;
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--secondary-color);
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.modal-content input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.modal-buttons .add-button,
+.modal-buttons .cancel-button {
+  padding: 12px 24px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .empresa-table th,
+  .empresa-table td {
+    padding: 12px;
+  }
+
+  .modal-content {
+    padding: 30px;
+  }
+
+  .modal-content input {
+    padding: 10px;
+  }
+
+  .modal-buttons .add-button,
+  .modal-buttons .cancel-button {
+    padding: 10px 20px;
+  }
+
+  .header h2 {
+    font-size: 24px;
+  }
+}
+
+
+.back-button {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.back-button:hover {
+  background-color: #c82333;
+}

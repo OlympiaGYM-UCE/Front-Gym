@@ -1,0 +1,79 @@
+.layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+  }
+  
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .logo-img {
+    height:80px;
+    width: auto;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #4caf50;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding-top: 80px; /* Ajusta este valor según la altura de tu navbar */
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      padding: 1rem;
+    }
+  
+    .nav-links {
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .nav-links a {
+      font-size: 1rem;
+    }
+  
+    .main-content {
+      padding-top: 120px; /* Ajusta este valor para dispositivos móviles */
+    }
+  }

@@ -1,0 +1,8 @@
+.blank-layout {
+    background-color: rgb(226, 241, 226); /* Fondo verde */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
