@@ -17,7 +17,7 @@ function Inicio() {
             className="join-button" 
             onClick={() => navigate('/menu')}
           >
-            Iniciar sesion
+            Iniciar sesión
           </button>
         </div>
       </div>
