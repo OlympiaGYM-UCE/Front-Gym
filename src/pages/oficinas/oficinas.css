@@ -220,3 +220,14 @@
   }
   
   
+  .empresa-select {
+    color: rgb(133, 126, 126);
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--secondary-color);
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
