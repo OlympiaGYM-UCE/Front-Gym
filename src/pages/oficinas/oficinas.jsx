@@ -4,6 +4,7 @@ import "./oficinas.css";
 
 function Oficinas() {
   const [oficinaData, setOficinaData] = useState([]);
+  const [empresaData, setEmpresaData] = useState([]); // Nuevo estado para empresas
   const [loading, setLoading] = useState(false);
   const [newOficina, setNewOficina] = useState({ ubicacion: "", telefono: "", email: "", idempresa: "" });
   const [editOficina, setEditOficina] = useState(null);
@@ -12,23 +13,35 @@ function Oficinas() {
 
   // Fetch oficina data from the API
   const fetchOficinaData = async () => {
-    console.log("Intentando obtener datos...");
+    console.log("Intentando obtener datos de oficinas...");
     try {
       setLoading(true);
-      // Actualiza la URL para que coincida con la URL correcta del microservicio
       const response = await axios.get("/api/office");
-      console.log("Datos recibidos:", response.data);
+      console.log("Datos de oficinas recibidos:", response.data);
       setOficinaData(response.data);
     } catch (error) {
-      console.error("Error al obtener datos:", error);
+      console.error("Error al obtener datos de oficinas:", error);
     } finally {
       setLoading(false);
     }
   };
 
-  // Obtiene los datos de las oficinas cuando el componente se monta
+  // Fetch empresa data
+  const fetchEmpresaData = async () => {
+    console.log("Intentando obtener datos de empresas...");
+    try {
+      const response = await axios.get("/api/empresas");
+      console.log("Datos de empresas recibidos:", response.data);
+      setEmpresaData(response.data);
+    } catch (error) {
+      console.error("Error al obtener datos de empresas:", error);
+    }
+  };
+
+  // Obtiene los datos cuando el componente se monta
   useEffect(() => {
     fetchOficinaData();
+    fetchEmpresaData(); // Carga las empresas al montar el componente
   }, []);
 
   // Delete oficina
@@ -82,6 +95,12 @@ function Oficinas() {
     }
   };
 
+  // Obtener nombre de empresa por ID
+  const getEmpresaName = (idempresa) => {
+    const empresa = empresaData.find(emp => emp.id === idempresa);
+    return empresa ? empresa.nombre : 'Empresa no encontrada';
+  };
+
   // Render table with oficina data
   const renderTable = () => {
     if (oficinaData && oficinaData.length > 0) {
@@ -93,7 +112,7 @@ function Oficinas() {
               <th>Ubicación</th>
               <th>Teléfono</th>
               <th>Email</th>
-              <th>ID Empresa</th>
+              <th>Empresa</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -104,7 +123,7 @@ function Oficinas() {
                 <td>{oficina.ubicacion}</td>
                 <td>{oficina.telefono}</td>
                 <td>{oficina.email}</td>
-                <td>{oficina.idempresa}</td>
+                <td>{getEmpresaName(oficina.idempresa)}</td>
                 <td>
                   <button onClick={() => deleteOficina(oficina.id)} className="delete-button">
                     Eliminar
@@ -163,13 +182,19 @@ function Oficinas() {
               onChange={handleNewOficinaChange}
               placeholder="Email"
             />
-            <input
-              type="number"
+            <select
               name="idempresa"
               value={newOficina.idempresa}
               onChange={handleNewOficinaChange}
-              placeholder="ID Empresa"
-            />
+              className="empresa-select"
+            >
+              <option value="">Selecciona una empresa</option>
+              {empresaData.map((empresa) => (
+                <option key={empresa.id} value={empresa.id}>
+                  {empresa.nombre}
+                </option>
+              ))}
+            </select>
             <div className="modal-buttons">
               <button onClick={addNewOficina} className="add-button">
                 Agregar
@@ -208,13 +233,19 @@ function Oficinas() {
               onChange={handleEditOficinaChange}
               placeholder="Email"
             />
-            <input
-              type="number"
+            <select
               name="idempresa"
               value={editOficina.idempresa}
               onChange={handleEditOficinaChange}
-              placeholder="ID Empresa"
-            />
+              className="empresa-select"
+            >
+              <option value="">Selecciona una empresa</option>
+              {empresaData.map((empresa) => (
+                <option key={empresa.id} value={empresa.id}>
+                  {empresa.nombre}
+                </option>
+              ))}
+            </select>
             <div className="modal-buttons">
               <button onClick={updateOficina} className="add-button">
                 Guardar
@@ -227,7 +258,6 @@ function Oficinas() {
         </div>
       )}
 
-      {/* Botón Atrás */}
       <button onClick={() => (window.location.href = "/menu")} className="back-button">
         Atrás
       </button>
