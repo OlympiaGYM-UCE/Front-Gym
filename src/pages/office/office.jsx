@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./oficinas.css";
+import "./office.css";
 
-function Oficinas() {
+function Office() {
   const [oficinaData, setOficinaData] = useState([]);
   const [empresaData, setEmpresaData] = useState([]); // Nuevo estado para empresas
   const [loading, setLoading] = useState(false);
@@ -265,4 +265,4 @@ function Oficinas() {
   );
 }
 
-export default Oficinas;
+export default Office;

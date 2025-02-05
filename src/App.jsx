@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Inicio from "./pages/inicio/inicio";
 import Empresas from "./pages/empresas/empresas";
-import Oficinas from "./pages/oficinas/oficinas";
+import Office from "./pages/office/office";
 import Rutinas from "./pages/rutinas/rutinas";
 import Layout from "./components/Layout";
 import BlankLayout from "./components/BlankLayout";
@@ -27,9 +27,9 @@ function App() {
           </BlankLayout>
         } />
 
-<Route path="/oficinas" element={
+<Route path="/office" element={
           <BlankLayout>
-            <Oficinas />
+            <Office />
           </BlankLayout>
         } />
 
