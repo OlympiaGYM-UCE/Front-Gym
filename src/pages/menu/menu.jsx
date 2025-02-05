@@ -15,7 +15,7 @@ function Menu() {
       <div className="menu">
         <h1 className="menu-title">Olympia Gym</h1>
         <button onClick={() => handleNavigation("/empresas")}>Empresas</button>
-        <button onClick={() => handleNavigation("/oficinas")}>Oficinas</button>
+        <button onClick={() => handleNavigation("/office")}>Oficinas</button>
         <button onClick={() => handleNavigation("/clientes")}>Clientes</button>
         <button onClick={() => handleNavigation("/entrenadores")}>Entrenadores</button>
         <button onClick={() => handleNavigation("/productos")}>Productos</button>
