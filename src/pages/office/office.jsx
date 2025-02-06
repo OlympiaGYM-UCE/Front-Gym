@@ -16,8 +16,11 @@ function Office() {
     console.log("Intentando obtener datos de oficinas...");
     try {
       setLoading(true);
-      const response = await axios.get("/api/office");
+      const response = await axios.get("/api/office_list");
       console.log("Datos de oficinas recibidos:", response.data);
+      const data = Array.isArray(response.data) ? response.data : 
+             response.data.data ? response.data.data : 
+             [];
       setOficinaData(response.data);
     } catch (error) {
       console.error("Error al obtener datos de oficinas:", error);
@@ -47,7 +50,7 @@ function Office() {
   // Delete oficina
   const deleteOficina = async (id) => {
     try {
-      await axios.delete(`/api/office/${id}`);
+      await axios.delete(`/api/office-delete/${id}`);
       fetchOficinaData();
     } catch (error) {
       console.error("Error al eliminar:", error);
@@ -66,7 +69,7 @@ function Office() {
   // Add new oficina
   const addNewOficina = async () => {
     try {
-      await axios.post("/api/office", newOficina);
+      await axios.post("/api/office_save", newOficina);
       setNewOficina({ ubicacion: "", telefono: "", email: "", idempresa: "" });
       setShowForm(false);
       fetchOficinaData();
@@ -103,7 +106,7 @@ function Office() {
 
   // Render table with oficina data
   const renderTable = () => {
-    if (oficinaData && oficinaData.length > 0) {
+    if (Array.isArray(oficinaData) && oficinaData.length > 0) {
       return (
         <table className="oficina-table">
           <thead>
