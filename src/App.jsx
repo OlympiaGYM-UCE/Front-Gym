@@ -6,6 +6,7 @@ import Office from "./pages/office/office";
 import Rutinas from "./pages/rutinas/rutinas";
 import Layout from "./components/Layout";
 import BlankLayout from "./components/BlankLayout";
+import About from "./pages/about/about";
 
 import Menu from "./pages/menu/menu"; // Ya está en tu proyecto
 
@@ -36,6 +37,12 @@ function App() {
         <Route path="/rutinas" element={
           <Layout>
             <Rutinas />
+          </Layout>
+        } />
+
+<Route path="/about" element={
+          <Layout>
+            <About />
           </Layout>
         } />
 
