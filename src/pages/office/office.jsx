@@ -20,9 +20,11 @@ function Office() {
       setLoading(true);
       const response = await axios.get("/api/office_list");
       console.log("Datos de oficinas recibidos:", response.data);
-      const data = Array.isArray(response.data) ? response.data : 
+      setOficinaData(response.data);
+      /*const data = Array.isArray(response.data) ? response.data : 
              response.data.data ? response.data.data : 
-             [];
+             [];*/
+
       setOficinaData(response.data);
     } catch (error) {
       console.error("Error al obtener datos de oficinas:", error);
