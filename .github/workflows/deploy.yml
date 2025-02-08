@@ -47,8 +47,9 @@ jobs:
 
       - name: Add EC2 host to known hosts
         run: |
-           mkdir -p ~/.ssh
-           echo "54.145.85.212 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBD19tLgVp4Kqt25LcCqO+/Wg1x79KrlHPIz68VGooJNaD8T2SFY/UG5LFVi93/OsKyeMI/h0JGjtWAi/yyqOTTU=" >> ~/.ssh/known_hosts
+          mkdir -p ~/.ssh
+          echo "54.227.177.12 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJiAdc5WldVUrQtnwONSgzLpVcIdy9U9V1D5ekSCmeFc" >> ~/.ssh/known_hosts
+
 
       - name: Deploy to EC2
         env:
