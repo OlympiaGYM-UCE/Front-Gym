@@ -16,11 +16,27 @@ body {
   font-family: "Arial", sans-serif;
   color: var(--text-color);
   background-color: var(--secondary-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal */
+.empresas-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+  min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+  padding: 20px;
+  max-width: 1200px; /* Limita el ancho máximo del contenido */
+  margin: 0 auto; /* Centra el contenedor en la página */
+  width: 100%; /* Ocupa el ancho completo */
+  box-sizing: border-box; /* Incluye el padding en el ancho y alto */
 }
 
 /* Tabla de empresas */
 .empresa-table {
-  width: 100%;
+  width: 100%; /* Ocupa el ancho completo del contenedor */
   border-collapse: separate;
   border-spacing: 0;
   margin-top: 20px;
@@ -198,11 +214,11 @@ body {
   }
 }
 
-
+/* Botón Atrás */
 .back-button {
   position: fixed;
-  bottom: 50px;
-  left: 50px;
+  bottom: 20px;
+  left: 20px;
   padding: 10px 20px;
   background-color: #dc3545;
   color: white;
@@ -213,6 +229,7 @@ body {
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
 }
 
 .back-button:hover {

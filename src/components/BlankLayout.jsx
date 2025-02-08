@@ -1,8 +1,11 @@
-import React from "react";
-import "./blanklayout.css";
+import PropTypes from 'prop-types';
 
-function BlankLayout({ children }) {
-  return <div className="blank-layout">{children}</div>;
-}
+const BlankLayout = ({ children }) => {
+  return <div>{children}</div>;
+};
+
+BlankLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default BlankLayout;
