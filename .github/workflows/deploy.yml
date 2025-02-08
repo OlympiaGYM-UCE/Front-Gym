@@ -1,0 +1,62 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint code
+        run: npm run lint
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: dist/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-build
+          path: dist/
+
+      - name: Deploy to EC2
+        env:
+          EC2_HOST: 54.227.177.12
+          EC2_USER: ubuntu
+          PEM_KEY: ${{ secrets.EC2_SSH_KEY }}
+        run: |
+          echo "${PEM_KEY}" > deploy_key.pem
+          chmod 600 deploy_key.pem
+          scp -i deploy_key.pem -r dist/* ${EC2_USER}@${EC2_HOST}:/home/ubuntu/temp-dist
+          ssh -i deploy_key.pem ${EC2_USER}@${EC2_HOST} << 'EOF'
+            sudo rm -rf /home/ubuntu/temp-dist/*
+            sudo rm -rf /var/www/html/*
+            sudo mv /home/ubuntu/temp-dist/* /var/www/html/
+            sudo chown -R www-data:www-data /var/www/html
+          EOF
