@@ -48,7 +48,7 @@ jobs:
       - name: Add EC2 host to known hosts
         run: |
           mkdir -p ~/.ssh
-          echo "54.227.177.12 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJiAdc5WldVUrQtnwONSgzLpVcIdy9U9V1D5ekSCmeFc" >> ~/.ssh/known_hosts
+          echo "18.232.151.116 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJiAdc5WldVUrQtnwONSgzLpVcIdy9U9V1D5ekSCmeFc" >> ~/.ssh/known_hosts
 
 
       - name: Create SSH key
@@ -60,14 +60,14 @@ jobs:
 
       - name: Copy files to EC2
         env:
-          EC2_HOST: 54.227.177.12
+          EC2_HOST: 18.232.151.116
           EC2_USER: ubuntu
         run: |
           scp -i deploy_key.pem -r dist ${EC2_USER}@${EC2_HOST}:/home/ubuntu/
 
       - name: Deploy to EC2
         env:
-          EC2_HOST: 54.227.177.12
+          EC2_HOST: 18.232.151.116
           EC2_USER: ubuntu
         run: |
           ssh -i deploy_key.pem ${EC2_USER}@${EC2_HOST} << 'EOF'
