@@ -47,13 +47,13 @@ export default defineConfig({
         target: "http://44.204.193.108:8000",  
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api\/prod_list/, "/productos/")
+        rewrite: (path) => path.replace(/^\/api\/prod_list/, '/productos/')
 },
       "/api/prod_save": {
         target: "http://35.174.107.150:8000",  
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api\/prod_save/, "/productos/")
+        rewrite: (path) => path.replace(/^\/api\/prod_save/, '/productos/')
 },
 
       "/api/prod_delete": {
@@ -75,28 +75,28 @@ export default defineConfig({
         target: "http://54.152.113.164:3000",  
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api\/clients_list/, "/api/clientes")
+        rewrite: (path) => path.replace(/^\/api\/clients_list/, '/api/clientes')
       },
 
     "/api/clients_save": {
         target: "http://54.152.113.164:3002",  
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api\/clients_save/, "/api/clientes")
+        rewrite: (path) => path.replace(/^\/api\/clients_save/, '/api/clientes')
       },
 
       "/api/clients_delete": {
     target: "http://54.152.113.164:3004",  
     changeOrigin: true,
     secure: false,
-    rewrite: (path) => path.replace(/^\/api\/clients_delete/, "/api/clientes")
+    rewrite: (path) => path.replace(/^\/api\/clients_delete/, '/api/clientes')
 },
 
     "/api/clients_update": {
     target: "http://54.152.113.164:3003",  
     changeOrigin: true,
     secure: false,
-    rewrite: (path) => path.replace(/^\/api\/clients_update/, "/api/clientes")
+    rewrite: (path) => path.replace(/^\/api\/clients_update/, '/api/clientes')
 },
 
 "/api/memberships": {
