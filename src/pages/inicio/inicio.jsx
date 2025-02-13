@@ -88,7 +88,7 @@ function Inicio() {
       className="membership-button"
       onClick={() => setIsModalOpen(true)}
     >
-      Consultar membresía hola
+      Consultar membresía hola2
     </button>
   </div>
         </div>
