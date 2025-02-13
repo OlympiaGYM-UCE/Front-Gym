@@ -6,11 +6,18 @@ import Office from "./pages/office/office";
 import Rutinas from "./pages/rutinas/rutinas";
 import Layout from "./components/Layout";
 import BlankLayout from "./components/BlankLayout";
+import Memberships from "./pages/memberships/memberships";
 import About from "./pages/about/about";
-
 import Menu from "./pages/menu/menu"; // Ya está en tu proyecto
-
+import Products from "./pages/products/products";
 import "./App.css";
+import Customers from "./pages/customers/customers";
+import Trainers from "./pages/trainers/trainers";
+import ProtectedRoute from "./pages/ProtectedRoute";
+import CheckMembership from "./pages/checkMembership/checkMembership";
+
+
+
 
 function App() {
   const handleMenuClick = (option) => {
@@ -22,6 +29,17 @@ function App() {
     <>
       <Routes>
         {/* Rutas con el layout del menú a la izquierda */}
+
+        {/* Rutas protegidas */}
+      <Route element={<ProtectedRoute />}>
+
+        {/* Ruta para mostrar solo el menú sin contenido adicional */}
+        <Route path="/menu" element={
+  <BlankLayout>
+    <Menu handleMenuClick={handleMenuClick} />  {/* Asegúrate de que handleMenuClick se pase correctamente */}
+  </BlankLayout>
+} />
+ 
         <Route path="/empresas" element={
           <BlankLayout>
             <Empresas />
@@ -32,6 +50,32 @@ function App() {
           <BlankLayout>
             <Office />
           </BlankLayout>
+        } />
+
+<Route path="/products" element={
+          <BlankLayout>
+            <Products />
+          </BlankLayout>
+        } />
+
+<Route path="/customers" element={
+          <BlankLayout>
+            <Customers />
+          </BlankLayout>
+        } />
+
+<Route path="/trainers" element={
+          <BlankLayout>
+            <Trainers />
+          </BlankLayout>
+        } />
+
+</Route>
+
+<Route path="/checkMembership" element={
+          <Layout>
+            <CheckMembership />
+          </Layout>
         } />
 
         <Route path="/rutinas" element={
@@ -46,6 +90,12 @@ function App() {
           </Layout>
         } />
 
+<Route path="/memberships" element={
+          <Layout>
+            <Memberships />
+          </Layout>
+        } />
+
         {/* Página de inicio sin el menú (si lo prefieres) */}
         <Route path="/" element={
           <Layout>
@@ -53,12 +103,7 @@ function App() {
           </Layout>
         } />
 
-        {/* Ruta para mostrar solo el menú sin contenido adicional */}
-        <Route path="/menu" element={
-  <BlankLayout>
-    <Menu handleMenuClick={handleMenuClick} />  {/* Asegúrate de que handleMenuClick se pase correctamente */}
-  </BlankLayout>
-} />
+        
 
       </Routes>
     </>

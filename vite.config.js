@@ -5,6 +5,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
+
+      // EMPRESAS
       "/api/empresas": {
         target: "http://52.20.30.108:8080", // URL del microservicio de empresas
         changeOrigin: true,
@@ -12,6 +14,8 @@ export default defineConfig({
 
       },
 
+
+// OFFICE
       "/api/office_list": {
         target: "http://98.85.58.85:8080",
         changeOrigin: true,
@@ -37,6 +41,66 @@ export default defineConfig({
         secure: false,
 
       },
+      
+      // PRODUCTOS
+      "/api/prod_list": {
+        target: "http://54.163.83.144:8000",  
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api\/prod_list/, "/productos/"),
+},
+      "/api/prod_save": {
+        target: "http://35.174.107.150:8000",  
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api\/prod_save/, "/productos/"),
+},
+
+      "/api/prod_delete": {
+        target: "http://18.207.156.150:8000",
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api\/prod_delete/, '/productos/')
+      },
+
+      "/api/prod_update": {
+        target: "http://54.152.113.164:8000",
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api\/prod_update/, '/productos/')
+      },
+
+      // CLIENTES
+      "/api/clients_list": {
+        target: "http://54.152.113.164:3000",  
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api\/clients_list/, "/api/clientes"),
+      },
+
+    "/api/clients_save": {
+        target: "http://54.152.113.164:3002",  
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api\/clients_save/, "/api/clientes"),
+      },
+
+      "/api/clients_delete": {
+    target: "http://54.152.113.164:3004",  
+    changeOrigin: true,
+    secure: false,
+    rewrite: (path) => path.replace(/^\/api\/clients_delete/, "/api/clientes"),
+},
+
+    "/api/clients_update": {
+    target: "http://54.152.113.164:3003",  
+    changeOrigin: true,
+    secure: false,
+    rewrite: (path) => path.replace(/^\/api\/clients_update/, "/api/clientes"),
+},
+
+
+      
     },
   },
 });
