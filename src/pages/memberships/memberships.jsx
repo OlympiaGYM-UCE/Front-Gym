@@ -88,7 +88,7 @@ const Memberships = () => {
               ))}
             </ul>
 
-            <button className={`subscribe-button ${plan.isPopular ? "popular-button" : ""}`}>Inscríbete Ahora</button>
+
           </div>
         ))}
       </div>
