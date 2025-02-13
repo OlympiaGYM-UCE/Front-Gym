@@ -12,8 +12,8 @@ import Menu from "./pages/menu/menu"; // Ya está en tu proyecto
 import Products from "./pages/products/products";
 import "./App.css";
 import Customers from "./pages/customers/customers";
-import Trainers from "./pages/trainers/trainers";
 import ProtectedRoute from "./pages/ProtectedRoute";
+import Memberlist from "./pages/memberlist/memberlist"
 
 
 
@@ -64,9 +64,9 @@ function App() {
           </BlankLayout>
         } />
 
-<Route path="/trainers" element={
+<Route path="/memberlist" element={
           <BlankLayout>
-            <Trainers />
+            <Memberlist />
           </BlankLayout>
         } />
 

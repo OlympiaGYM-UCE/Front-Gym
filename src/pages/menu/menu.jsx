@@ -23,7 +23,7 @@ function Menu() {
         <button onClick={() => handleNavigation("/empresas")}>Empresas</button>
         <button onClick={() => handleNavigation("/office")}>Oficinas</button>
         <button onClick={() => handleNavigation("/customers")}>Clientes</button>
-        <button onClick={() => handleNavigation("/trainers")}>Entrenadores</button>
+        <button onClick={() => handleNavigation("/memberlist")}>Membresias</button>
         <button onClick={() => handleNavigation("/products")}>Productos</button>
       </div>
       <div>
