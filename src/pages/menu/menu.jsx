@@ -1,4 +1,4 @@
-/*import React from "react";*/
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./menu.css";
 
@@ -7,7 +7,13 @@ function Menu() {
 
   // Función para manejar la redirección
   const handleNavigation = (path) => {
-    navigate(path); // Redirige al path recibido
+    navigate(path);
+  };
+
+  // Función para cerrar sesión
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Eliminar el token
+    navigate("/"); // Redirigir al inicio de sesión
   };
 
   return (
@@ -16,13 +22,13 @@ function Menu() {
         <h1 className="menu-title">Olympia Gym</h1>
         <button onClick={() => handleNavigation("/empresas")}>Empresas</button>
         <button onClick={() => handleNavigation("/office")}>Oficinas</button>
-        <button onClick={() => handleNavigation("/clientes")}>Clientes</button>
-        <button onClick={() => handleNavigation("/entrenadores")}>Entrenadores</button>
-        <button onClick={() => handleNavigation("/productos")}>Productos</button>
+        <button onClick={() => handleNavigation("/customers")}>Clientes</button>
+        <button onClick={() => handleNavigation("/trainers")}>Entrenadores</button>
+        <button onClick={() => handleNavigation("/products")}>Productos</button>
       </div>
       <div>
-        {/* Botón Salir */}
-        <button className="logout-button" onClick={() => handleNavigation("/")}>
+        {/* Botón para cerrar sesión */}
+        <button className="logout-button" onClick={handleLogout}>
           Salir
         </button>
       </div>

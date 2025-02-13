@@ -76,5 +76,6 @@ jobs:
             sudo mv /home/ubuntu/dist/* /var/www/html/
             sudo chown -R www-data:www-data /var/www/html
             sudo systemctl restart nginx  # Si usas Apache, cambia a: sudo systemctl restart apache2
+ test
           EOF
 

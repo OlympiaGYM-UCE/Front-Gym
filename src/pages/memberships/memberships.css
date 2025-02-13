@@ -1,0 +1,215 @@
+.memberships-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+  
+  .memberships-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .memberships-header h1 {
+    font-size: 2.5rem;
+    color: #4caf50;
+    margin-bottom: 1rem;
+  }
+  
+  .memberships-header p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  .plans-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .plan-card {
+    position: relative;
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+  }
+  
+  .plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .plan-card.popular {
+    transform: scale(1.05);
+  }
+  
+  .popular-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background-color: #ff4444;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  .plan-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .plan-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .plan-description {
+    color: inherit;
+    opacity: 0.8;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .plan-price {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .currency {
+    font-size: 2rem;
+    vertical-align: top;
+    margin-right: 4px;
+  }
+  
+  .amount {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+  
+  .period {
+    font-size: 1.2rem;
+    opacity: 0.8;
+  }
+  
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    flex-grow: 1;
+  }
+  
+  .features-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+  
+  .check-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    color: #4caf50;
+  }
+  
+  .popular .check-icon {
+    color: white;
+  }
+  
+  .subscribe-button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .subscribe-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+  }
+  
+  .popular-button {
+    background-color: white;
+    color: #4caf50;
+  }
+  
+  .additional-info {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .additional-info h3 {
+    color: #4caf50;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  
+  .benefit-item {
+    text-align: center;
+  }
+  
+  .benefit-item h4 {
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .benefit-item p {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 1024px) {
+    .plans-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .plans-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .plan-card.popular {
+      transform: none;
+    }
+  
+    .benefits-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  
+    .memberships-container {
+      padding: 2rem 1rem;
+    }
+  
+    .plan-card {
+      min-height: auto;
+    }
+  }
+  
+  
