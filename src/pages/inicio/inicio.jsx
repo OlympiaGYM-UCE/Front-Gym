@@ -82,7 +82,20 @@ function Inicio() {
             Today is the perfect day to start
             <span className="highlight-text"> your best version</span>
           </h1>
-          
+          <button 
+  onClick={() => navigate('/consultar')}
+  style={{
+    padding: '10px 20px',
+    backgroundColor: '#28a745',
+    color: 'white',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    marginTop: '20px'
+  }}
+>
+  Consultar Membresía
+</button>
         </div>
         <div className="login-section">
         </div>

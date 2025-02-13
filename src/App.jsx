@@ -14,6 +14,7 @@ import "./App.css";
 import Customers from "./pages/customers/customers";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import Memberlist from "./pages/memberlist/memberlist"
+import Consultar from "./pages/consultar/consultar";
 
 
 
@@ -77,6 +78,12 @@ function App() {
         <Route path="/rutinas" element={
           <Layout>
             <Rutinas />
+          </Layout>
+        } />
+
+<Route path="/consultar" element={
+          <Layout>
+            <Consultar />
           </Layout>
         } />
 
