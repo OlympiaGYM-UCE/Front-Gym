@@ -47,7 +47,7 @@ function Customers() {
   // Delete customer
   const deleteCustomer = async (id) => {
     try {
-      await axios.delete(`/api/customers/${id}`)
+      await axios.delete(`/api/clients_delete/${id}`)
       fetchData()
     } catch (error) {
       console.error("Error al eliminar:", error)
