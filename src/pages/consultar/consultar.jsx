@@ -16,7 +16,11 @@ function Consultar() {
     }
 
     try {
-      const response = await fetch(`/api/memberships/cedula/${cedula}`)
+        console.log('Iniciando petición a:', `/api/memberships/cedula/${cedula}`);
+      
+        const response = await fetch(`/api/memberships/cedula/${cedula}`);
+        console.log('Respuesta recibida:', response);
+        
 
       if (!response.ok) {
         throw new Error("No se encontró información para esta cédula")
