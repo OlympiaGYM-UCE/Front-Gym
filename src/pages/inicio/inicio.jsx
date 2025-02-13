@@ -112,7 +112,7 @@ function Inicio() {
                 />
               </div>
               <button type="submit" className="login-button">
-                Iniciar Sesión
+                Iniciar Sesión HOLI
               </button>
             </form>
           </div>
