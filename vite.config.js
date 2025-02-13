@@ -7,7 +7,7 @@ export default defineConfig({
     proxy: {
 
       // EMPRESAS
-      "/api/empresas": {
+      "/api/bussines": {
         target: "http://52.20.30.108:8080", // URL del microservicio de empresas
         changeOrigin: true,
         secure: false,
@@ -44,7 +44,7 @@ export default defineConfig({
       
       // PRODUCTOS
       "/api/prod_list": {
-        target: "http://54.163.83.144:8000",  
+        target: "http://44.204.193.108:8000",  
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api\/prod_list/, "/productos/"),

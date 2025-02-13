@@ -15,7 +15,7 @@ function Empresas() {
     console.log("Intentando obtener datos...")
     try {
       setLoading(true)
-      const response = await axios.get("/api/empresas") // Usar el proxy aquí
+      const response = await axios.get("/api/bussines") // Usar el proxy aquí
       console.log("Datos recibidos:", response.data)
       setEmpresaData(response.data)
     } catch (error) {
@@ -33,7 +33,7 @@ function Empresas() {
   // Delete empresa
   const deleteEmpresa = async (id) => {
     try {
-      await axios.delete(`/api/empresas/${id}`) // Usar el proxy aquí también
+      await axios.delete(`/api/bussines/${id}`) // Usar el proxy aquí también
       fetchEmpresaData()
     } catch (error) {
       console.error("Error al eliminar:", error)
@@ -52,7 +52,7 @@ function Empresas() {
   // Add new empresa
   const addNewEmpresa = async () => {
     try {
-      await axios.post("/api/empresas", newEmpresa) // Usar el proxy aquí también
+      await axios.post("/api/bussines", newEmpresa) // Usar el proxy aquí también
       setNewEmpresa({ nombre: "", telefono: "", email: "" })
       setShowForm(false)
       fetchEmpresaData()
@@ -73,7 +73,7 @@ function Empresas() {
   // Update empresa
   const updateEmpresa = async () => {
     try {
-      await axios.put(`/api/empresas/${editEmpresa.id}`, editEmpresa) // Usar el proxy aquí también
+      await axios.put(`/api/bussines/${editEmpresa.id}`, editEmpresa) // Usar el proxy aquí también
       setShowEditForm(false)
       fetchEmpresaData()
     } catch (error) {

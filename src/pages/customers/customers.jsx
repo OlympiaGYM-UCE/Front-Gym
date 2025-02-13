@@ -27,7 +27,7 @@ function Customers() {
       setLoading(true)
       const [customersResponse, empresasResponse] = await Promise.all([
         axios.get("/api/clients_list"),
-        axios.get("/api/empresas")
+        axios.get("/api/bussines")
       ])
       console.log("Datos de clientes recibidos:", customersResponse.data)
       console.log("Datos de empresas recibidos:", empresasResponse.data)
