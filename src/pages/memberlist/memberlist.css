@@ -8,7 +8,7 @@
     --edit-color: #ffc107;
     --add-color: #28a745;
     --cancel-color: #dc3545;
-    --hover-bg: #e2e2e2;
+    --hover-bg: #f2f4f8;
   }
   
   /* Estilos generales */
@@ -21,22 +21,22 @@
   }
   
   /* Contenedor principal */
-  .trainers-container {
+  .membrelist-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    min-height: 100vh; /* Ocupa toda la altura de la pantalla */
     padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box;
+    max-width: 1200px; /* Limita el ancho máximo del contenido */
+    margin: 0 auto; /* Centra el contenedor en la página */
+    width: 100%; /* Ocupa el ancho completo */
+    box-sizing: border-box; /* Incluye el padding en el ancho y alto */
   }
   
-  /* Tabla de entrenadores */
-  .trainer-table {
-    width: 100%;
+  /* Tabla de miembros */
+  .member-table {
+    width: 100%; /* Ocupa el ancho completo del contenedor */
     border-collapse: separate;
     border-spacing: 0;
     margin-top: 20px;
@@ -46,14 +46,14 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
   
-  .trainer-table th,
-  .trainer-table td {
+  .member-table th,
+  .member-table td {
     padding: 16px;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
   }
   
-  .trainer-table th {
+  .member-table th {
     background: linear-gradient(90deg, var(--primary-color) 0%, #283376 100%);
     color: white;
     font-weight: 600;
@@ -61,12 +61,28 @@
     letter-spacing: 0.5px;
   }
   
-  .trainer-table tr:nth-child(even) {
+  .member-table tr:nth-child(even) {
     background-color: rgba(248, 249, 250, 0.5);
   }
   
-  .trainer-table tr:hover {
+  .member-table tr:hover {
     background-color: var(--hover-bg);
+  }
+  
+  /* Encabezado */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--primary-color);
+  }
+  
+  .header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
   }
   
   /* Botones */
@@ -82,7 +98,6 @@
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin: 0 5px;
   }
   
   .delete-button,
@@ -145,8 +160,8 @@
     padding-bottom: 10px;
   }
   
-  .modal-content input,
-  .modal-content select {
+  .modal-content input {
+    color: black;
     width: 100%;
     padding: 12px;
     margin: 12px 0;
@@ -157,19 +172,9 @@
     transition: border-color 0.3s ease;
   }
   
-  .modal-content input:focus,
-  .modal-content select:focus {
+  .modal-content input:focus {
     outline: none;
     border-color: var(--primary-color);
-  }
-  
-  .sucursal-select {
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-    padding-right: 40px;
   }
   
   .modal-buttons {
@@ -177,6 +182,36 @@
     justify-content: flex-end;
     gap: 12px;
     margin-top: 24px;
+  }
+  
+  .modal-buttons .add-button,
+  .modal-buttons .cancel-button {
+    padding: 12px 24px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .member-table th,
+    .member-table td {
+      padding: 12px;
+    }
+  
+    .modal-content {
+      padding: 30px;
+    }
+  
+    .modal-content input {
+      padding: 10px;
+    }
+  
+    .modal-buttons .add-button,
+    .modal-buttons .cancel-button {
+      padding: 10px 20px;
+    }
+  
+    .header h2 {
+      font-size: 24px;
+    }
   }
   
   /* Botón Atrás */
@@ -194,27 +229,9 @@
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    z-index: 1000;
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
   }
   
   .back-button:hover {
     background-color: #c82333;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .trainer-table th,
-    .trainer-table td {
-      padding: 12px;
-    }
-  
-    .modal-content {
-      padding: 30px;
-      margin: 20px;
-    }
-  
-    .modal-content input,
-    .modal-content select {
-      padding: 10px;
-    }
   }

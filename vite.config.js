@@ -99,6 +99,13 @@ export default defineConfig({
     rewrite: (path) => path.replace(/^\/api\/clients_update/, "/api/clientes"),
 },
 
+"/api/memberships": {
+        target: "http://54.152.113.164:8080", // URL del microservicio de empresas
+        changeOrigin: true,
+        secure: false,
+
+      },
+
 
       
     },
