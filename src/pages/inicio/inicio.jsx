@@ -39,7 +39,7 @@ function Inicio() {
     }
 
     try {
-      const response = await fetch('http://localhost:2222/api/auth/login', {
+      const response = await fetch('http://13.216.39.139:2222/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
