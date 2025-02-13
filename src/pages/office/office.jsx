@@ -37,7 +37,7 @@ function Office() {
   const fetchEmpresaData = async () => {
     console.log("Intentando obtener datos de empresas...");
     try {
-      const response = await axios.get("/api/empresas");
+      const response = await axios.get("/api/bussines");
       console.log("Datos de empresas recibidos:", response.data);
       setEmpresaData(response.data);
     } catch (error) {
