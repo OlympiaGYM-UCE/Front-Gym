@@ -14,7 +14,7 @@ import "./App.css";
 import Customers from "./pages/customers/customers";
 import Trainers from "./pages/trainers/trainers";
 import ProtectedRoute from "./pages/ProtectedRoute";
-import CheckMembership from "./pages/checkMembership/checkMembership";
+
 
 
 
@@ -72,11 +72,7 @@ function App() {
 
 </Route>
 
-<Route path="/checkMembership" element={
-          <Layout>
-            <CheckMembership />
-          </Layout>
-        } />
+
 
         <Route path="/rutinas" element={
           <Layout>

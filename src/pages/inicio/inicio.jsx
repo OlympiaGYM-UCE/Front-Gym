@@ -82,15 +82,7 @@ function Inicio() {
             Today is the perfect day to start
             <span className="highlight-text"> your best version</span>
           </h1>
-          {/* Nuevo botón para abrir el modal */}
-          <div className="button-container">
-    <button 
-      className="membership-button"
-      onClick={() => setIsModalOpen(true)}
-    >
-      Consultar membresía hola
-    </button>
-  </div>
+          
         </div>
         <div className="login-section">
         </div>
@@ -120,7 +112,7 @@ function Inicio() {
                 />
               </div>
               <button type="submit" className="login-button">
-                Iniciar Sesión
+                Iniciar Sesión HOLI
               </button>
             </form>
           </div>
